@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Stock Tracker</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+</head>
+
+<body>
+    <div id="root">
+        <div class="container mt-5 mb-5">
+            <h1 class="display-2">1. Stock Price Over Time</h1>
+         <canvas id="myChart"></canvas>
+         <canvas id="myChart" width="400" height="400"></canvas>
+        
+            </div>
+            
+           
+        </div>
+        <div class="container mt-5 mb-5">
+            <h1 class="display-2">2. Highest Stock Price</h1>
+            <canvas id="highest-price-chart" ></canvas>
+
+        </div>
+        <div class="container mt-5 mb-5">
+            <h1 class="display-2">3. Average Stock Price</h1>
+            <canvas id="average-price-chart" ></canvas>
+            <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+            
+        </div>
+    </div>
+    <canvas id = "myFirstChart"></canvas>
+    <!-- Our JavaScript Code  -->
+        <script src="mockData.js"></script>
+        <script src="index.js"></script>
+        <script src="
+        https://cdn.jsdelivr.net/npm/chart.js@4.2.0/dist/chart.umd.min.js
+        "></script>
+        <script>
+            var timeChartCanvas = document.getElementById('myChart').getContext('2d');
+            var myChart = new Chart(timeChartCanvas, {
+                type: 'line',
+                data: {
+                    labels: stocks[0].value.map(value => value.datetime);
+                    datasets: stocks.map ( stock => {
+                        label: stock.meta.symbol,
+                        data: stock.values.map(value => parseFloat(value.high)),
+                       
+                        backgroundColor: [
+                            
+                        ],
+                        borderColor: [
+                            
+                        ],
+                        
+                    function getColor(stock){
+                    if(stock === "GME"){
+                        return 'rgba(61, 161, 61, 0.7)'
+                    }
+                    if(stock === "MSFT"){
+                        return 'rgba(209, 4, 25, 0.7)'
+                    }
+                    if(stock === "DIS"){
+                        return 'rgba(18, 4, 209, 0.7)'
+                    }
+                    if(stock === "BNTX"){
+                        return 'rgba(166, 43, 158, 0.7)'
+                    }
+}
+
+                    })
+                },
+                options: {
+                    scales: {
+                        y: {
+                            beginAtZero: true
+                        }
+                    }
+                }
+            });
+            </script>
+     
+    
+</body>
+
+</html>
